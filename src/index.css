@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-wearnear-deep: #172B82;
+    --color-wearnear-primary: #243FBA;
+    --color-wearnear-bright: #3155D8;
+    --color-wearnear-cream: #F5F0E6;
+    --color-wearnear-surface: #FFFCF5;
+    --color-wearnear-text: #172033;
+    --color-wearnear-muted: #687085;
+    --color-wearnear-border: #DDD7CA;
+  }
+
+  body {
+    background-color: #F5F0E6;
+    color: #172033;
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Custom Utilities & Animations */
+.bg-cream-pattern {
+  background-color: #F5F0E6;
+  background-image: radial-gradient(#DDD7CA 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+/* Safe area bottom padding for mobile devices */
+.pb-safe {
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 16px));
+}
+
+.mb-safe {
+  margin-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #DDD7CA;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #687085;
+}
+
+/* Animated Scanner Line */
+@keyframes scan-laser {
+  0% {
+    top: 5%;
+    opacity: 0.3;
+  }
+  50% {
+    top: 90%;
+    opacity: 1;
+  }
+  100% {
+    top: 5%;
+    opacity: 0.3;
+  }
+}
+
+.animate-scan-laser {
+  animation: scan-laser 2.2s ease-in-out infinite;
+}
+
+/* Subtle Shimmer for Skeleton */
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-skeleton {
+  background: linear-gradient(90deg, #EFE9DC 25%, #F7F3EA 50%, #EFE9DC 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
